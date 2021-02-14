@@ -3,7 +3,7 @@ SELECT *
 FROM techjobs.employer;
 
 ## Part 2: Test it with SQL
-SELECT *
+SELECT name
 FROM techjobs.employer
 WHERE location = "St.Louis City";
 

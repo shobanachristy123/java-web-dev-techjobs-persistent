@@ -10,6 +10,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -21,7 +22,10 @@ public class SkillController {
         private SkillRepository skillRepository;
 
         @GetMapping
-        public String defaultPage(){
+        public String defaultPage(Model model){
+            List<Skill> skills = (List<Skill>) skillRepository.findAll();
+            model.addAttribute("skills", skills);
+
             return "skills/index";
         }
 

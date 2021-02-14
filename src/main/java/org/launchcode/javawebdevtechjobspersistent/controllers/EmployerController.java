@@ -9,6 +9,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -19,7 +20,9 @@ public class EmployerController {
     private EmployerRepository employerRepository;
 
     @GetMapping
-    public String defaultPage(){
+    public String defaultPage(Model model){
+        List<Employer> employers= (List<Employer>) employerRepository.findAll();
+        model.addAttribute("employers", employers);
         return "employers/index";
     }
 
